@@ -1,45 +1,70 @@
-// TreeNode class represents a node in the tree
+// Node class for the tree
 class TreeNode {
-    int value;          // The value of the node
-    TreeNode left;      // Left child
-    TreeNode right;     // Right child
+    int value;
+    TreeNode left, right;
 
-    // Constructor to create a node with a specific value
-    TreeNode(int value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
+    TreeNode(int item) {
+        value = item;
+        left = right = null;
     }
 }
 
-// Main class to build and display the tree
+// Binary Search Tree operations
+class BinarySearchTreeOp {
+    TreeNode root;
+
+    // Insert a value into the BST
+    void insert(int value) {
+        root = insertVal(root, value);
+    }
+
+    // Recursive helper for insertion
+    TreeNode insertVal(TreeNode node, int value) {
+        if (node == null) {
+            node = new TreeNode(value);
+            return node;
+        }
+
+        if (value < node.value) {
+            node.left = insertVal(node.left, value);
+        } else if (value > node.value) {
+            node.right = insertVal(node.right, value);
+        }
+
+        return node;
+    }
+
+    // Inorder traversal (Left → Root → Right)
+    void inorder() {
+        inorderVal(root);
+    }
+
+    void inorderVal(TreeNode node) {
+        if (node != null) {
+            inorderVal(node.left);
+            System.out.print(node.value + " ");
+            inorderVal(node.right);
+        }
+    }
+}
+
+// Main class to run the program
 public class Day15task01 {
     public static void main(String[] args) {
-        // Create the root node with value 1
-        TreeNode root = new TreeNode(1);
+        BinarySearchTreeOp bstobj = new BinarySearchTreeOp();
 
-        // Create and attach children
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
+        // Insert elements into BST
+        bstobj.insert(10);
+        bstobj.insert(50);
+        bstobj.insert(400);
+        bstobj.insert(70);
+        bstobj.insert(5);
 
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-
-        // Display tree structure using preorder traversal
-        System.out.print("Preorder traversal of tree: ");
-        preorder(root);
-    }
-
-    // A simple method to print the tree in preorder (Root, Left, Right)
-    public static void preorder(TreeNode node) {
-        if (node == null) return;
-
-        System.out.print(node.value + " ");
-        preorder(node.left);
-        preorder(node.right);
+        // Print inorder traversal
+        System.out.println("Here is the code for inorder traversal of Binary Search Tree:");
+        bstobj.inorder();
     }
 }
-
 
 
 
