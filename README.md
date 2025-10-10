@@ -49,7 +49,7 @@ src/
 
 | Component             | Description                                   |
 | --------------------- | --------------------------------------------- |
-| **Java 17+**        | Core programming language                     |
+| **Java 11+**        | Core programming language                     |
 | **OOP Principles** | Encapsulation, Inheritance, Polymorphism      |
 | **Serialization**  | Persistent file-based data storage            |
 | **Console UI**    | User interaction through text-based interface |
@@ -57,7 +57,7 @@ src/
 ## Building and Running
 
 ### Prerequisites
--Java JDK 17 or higher
+-Java JDK 11 or higher
 -IntelliJ IDEA (recommended) or any Java IDE
 
 ---
@@ -71,14 +71,14 @@ src/
 
   ---
 
-## Open the Project
+### Open the Project
 
 1. Open the project in IntelliJ IDEA (or any preferred IDE).
 2.Right-click on the src folder → Mark Directory as → Sources Root.
 3. Open and run Main.java.
 4. Follow the console menu to register, log in, and explore features.
 
-## Sample Console Menu
+### Sample Console Menu
 Welcome to E-Learning Platform (Console)
 1) Register
 2) Login
@@ -86,53 +86,55 @@ Welcome to E-Learning Platform (Console)
 Choose:
 
 
-## After login, instructors can:
+### After login, instructors can:
 
 -Create courses
 
 -Add quizzes and questions
 
-## Students can:
+### Students can:
 
 -Enroll in courses
 
 -Take quizzes
 
-## Example Quiz Flow
+### Example Quiz Flow
 
 Q1: What is 2 + 2?
 1) 3
 2) 4
 3) 5
 4) 6
+   
 Your choice: 2
+
 Score: 1/1
 
 
 ## How to Compile and Run (Manual Method)
-# 1️. Compile the project
+### 1️. Compile the project
 javac -d out $(find src -name "*.java")
 
-# 2. Run the application
+### 2. Run the application
 java -cp out com.elearn.Main
 
-# Example Workflow
+### Example Workflow
 
-# 1️. Start the application
+### 1️. Start the application
 Welcome to E-Learning Platform 
 1) Register
 2) Login
 3) Exit
 
-# 2 Register as Instructor
+### 2 Register as Instructor
 Enter username: admin
 Enter password: 1234
 Enter role (student/instructor): instructor
 
-# 3️. Create a Course
+### 3️. Create a Course
 Course created: Java Basics (C1000)
 
-# 4️. Add a Quiz & Questions
+### 4️. Add a Quiz & Questions
 Quiz added: Introduction Quiz (Q5000)
 Question: What is JVM?
 Options:
@@ -140,14 +142,18 @@ Options:
 2) Java Version Manager
 3) Just Virtual Machine
 4) None
+   
 Correct answer: 1
 
-# 5. Student Login & Attempt
+### 5. Student Login & Attempt
 User: student1
 Attempting quiz...
 Q1: What is JVM?
+
 Your choice (1-4): 1
+
 Correct!
+
 Score: 1/1
 
 ## Data Storage
@@ -161,19 +167,19 @@ elearn_data/
 
  ## Architecture Overview:
 
-# 1. Design Patterns
+### 1. Design Patterns
 
 1. Model–Service Structure: Separates data models from business logic.
 2. Singleton Pattern: Used in StorageService for consistent data management.
 3. Separation of Concerns: Independent modules for user, course, and quiz services.
 
-# 2. Security and Data Handling
+### 2. Security and Data Handling
 
 1. Input validation for all menu selections
 2. Serialized data storage with controlled access
 3. Modular service methods for future scalability
 
- ## Future Enhancements
+## Future Enhancements
 
 1. Upgrade to a web-based interface using Spring Boot
 2. Connect to MySQL/PostgreSQL for database persistence
